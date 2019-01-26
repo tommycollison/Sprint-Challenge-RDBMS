@@ -89,10 +89,10 @@ action: id, description, notes, boolean completed or not, project_id
 
 ### Tasks
 
-- [ ] Build the database and tables using knex migrations. **Seeding is not needed**.
+- [x] Build the database and tables using knex migrations. **Seeding is not needed**.
 - [ ] Build the API with the following endpoints:
 
-  - [ ] POST for adding projects.
+  - [x] POST for adding projects.
   - [ ] POST for adding actions.
   - [ ] GET for retrieving a `project` by its `id` that returns an object with the following structure:
 
