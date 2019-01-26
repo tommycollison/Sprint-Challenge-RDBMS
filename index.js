@@ -51,7 +51,7 @@ server.get('/api/projects/:id', (req, res) => {
         .then(actions => {
             const foo = Object.assign(projects);
             console.log(projects)
-            const response = {foo, actions};
+            const response = {...foo, actions};
             res.status(200).json(response)
         })
     })
