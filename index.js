@@ -40,6 +40,27 @@ server.get('/api/actions', (req, res) => {
     })
 })
 
+server.get('/api/projects/:id', (req, res) => {
+    const {id} = req.params;
+    db('projects')
+    .where({id})
+    .first()
+    .then(projects => {
+        db('actions')
+        .where({project_id: id})
+        .then(actions => {
+            const foo = Object.assign(projects);
+            console.log(projects)
+            const response = {foo, actions};
+            res.status(200).json(response)
+        })
+    })
+    .catch(error => {
+        res.status(500)
+        res.json(`Hm, can't find that one. Sure you've got the ID right?`)
+    })
+})
+
 server.post('/api/projects', (req, res) => {
     const project = req.body;
     console.log('marco, line 30');
@@ -67,3 +88,4 @@ server.post('/api/actions', (req, res) => {
         res.json(`Error posting, please check and try again`)
     })
 })
+
