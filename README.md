@@ -78,6 +78,15 @@ Follow these steps for completing your project.
 
 Feel free to name the tables and fields anything you want. **Add relationships** as you see fit.
 
+```
+project can have many actions but an action only has one project.
+zoo can have many animals but an animal can only have one zoo.
+
+project: id, name, description, boolean completed or not
+action: id, description, notes, boolean completed or not, project_id
+
+```
+
 ### Tasks
 
 - [ ] Build the database and tables using knex migrations. **Seeding is not needed**.
