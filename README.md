@@ -29,19 +29,30 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `RDBMS` and `SQL`.
+
+SQL, or _Structured Query Language_, is a programming language we use to interact with databases and the information in them. RDBMS, or _Relational Database Management Systems_, is database software. RDBMS is what defines and stores data in tables -- it stores the data and remembers the relationship between different rows and tables. SQL is what we use to query, search, and change that data. 
+
 1. Why do tables need a `primary key`?
+
+Tables need a primary key because this prevents identical data from being created. Imagine, in our `db-zoos` example, we had two zoos called "Dublin City Zoo," one in Ireland and one in Pleasanton, CA. (In this particular instance, we'd probably have different addresses, but I imagine that'd be unwieldy to use as a PK.)
+
 1. What is the name given to a table column that references the primary key on another table.
+
+Foreign key.
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+
+A join command, or a join table. It creates a temporary table that stores data from two different tables.
 
 ## Project Set Up
 
 Follow these steps for starting your project.
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Create a forked copy of this project.
+- [x] Add your project manager as collaborator on Github.
+- [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [ ] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
@@ -67,13 +78,22 @@ Follow these steps for completing your project.
 
 Feel free to name the tables and fields anything you want. **Add relationships** as you see fit.
 
+```
+project can have many actions but an action only has one project.
+zoo can have many animals but an animal can only have one zoo.
+
+project: id, name, description, boolean completed or not
+action: id, description, notes, boolean completed or not, project_id
+
+```
+
 ### Tasks
 
-- [ ] Build the database and tables using knex migrations. **Seeding is not needed**.
+- [x] Build the database and tables using knex migrations. **Seeding is not needed**.
 - [ ] Build the API with the following endpoints:
 
-  - [ ] POST for adding projects.
-  - [ ] POST for adding actions.
+  - [x] POST for adding projects.
+  - [x] POST for adding actions.
   - [ ] GET for retrieving a `project` by its `id` that returns an object with the following structure:
 
     ```js
